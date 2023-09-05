@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=∫, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h1>Fechas</h1>
+                <label class="form-laber">Fecha:</label>
+                <input type="date" id="dtFecha" class="form-control">
+                <button type="button" class="btn btn-primary mt-2" onclick="doClickCalcular()">Calcular</button>
+                <p id="lblResultado" class="mt-2"></p>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js" integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa" crossorigin="anonymous"></script>
+    <script>
+        /*
+        Primavera: inicia el 20 de marzo y finaliza el 21 de junio.
+        Verano: inicia el 21 de junio y finaliza el 23 de septiembre.
+        Otoño: inicia el 23 de septiembre y finaliza el 21 de diciembre.
+        Invierno: inicia el 21 de diciembre y finaliza el 20 de marzo.
+        */
+        function doClickCalcular() {
+            let fecha = document.getElementById("dtFecha").valueAsDate;
+
+            let mitadAño = Date.parse("07/01/" + fecha.getFullYear())
+
+            let inicioPrimavera = Date.parse("");
+            let finPrimavera = Date.parse("");
+            let inicioVerano = Date.parse("");
+            let finVerano = Date.parse("");
+            let inicioOtoño = Date.parse("");
+            let finOtoño = Date.parse("");
+            let inicioInvierno = Date.parse("");
+            let finPrInvierno = Date.parse("");
+            let respuesta = "";
+
+            let estacion = "";
+            if (fecha >= inicioPrimavera && fecha <= finPrimavera) {
+                estacion = "Primavera";
+            }
+
+            if (fecha > mitadAño) {
+                respuesta = "2da mitad del año";
+            } else {
+                respuesta = "1ra mitad del año";
+            }
+            
+            let lblResultado = document.getElementById("lblResultado");
+            lblResultado.innerHTML = respuesta;
+        }
+    </script>
+</body>
+</html>
